@@ -1,0 +1,40 @@
+GET http://localhost:9002/api/games_objects/
+
+###
+
+GET http://localhost:9002/api/games_objects/5
+
+###
+
+
+POST  http://localhost:9002/api/games_objects/
+content-type: application/json
+
+{
+    "info": "sample",
+    "description": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "image_url": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "title": "sample",
+    "type": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+POST  http://localhost:9002/api/games_objects/15
+content-type: application/json
+
+{
+    "info": "sample",
+    "description": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "image_url": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "title": "new title",
+    "type": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+DELETE   http://localhost:9002/api/games_objects/15
+content-type: application/json
+
+{
+
+}

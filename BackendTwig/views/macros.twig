@@ -1,0 +1,5 @@
+{% macro btn(title, is_active,hrefIn,btnParametr2 ="primary") %}
+
+<a href="{{hrefIn}}" class="btn btn-{{ is_active ? btnParametr2  : 'link' }} mr-2">{{title}}</a>
+
+{% endmacro %}

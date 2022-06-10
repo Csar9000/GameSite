@@ -1,0 +1,49 @@
+{% import "macros.twig" as macros %}
+
+<div class = "col d-flex m-1">
+<div class="row mb-4 d-flex align-items-stretch">
+  <div class="border p-2 flex-grow-1 d-flex flex-column justify-content-between position-relative">
+    <div class= "position-absolute" style = "right: 4px; top:4px">
+        <form action ="/games_object/{{item.id}}/delete" method="POST">
+          <button type = "submit" class= "btn btn-danger">
+            <i class ="fas fa-times"></i>
+          </button>       
+        </form>
+        <form action ="/games_objects/{{item.id}}/edit">
+          <button type = "submit" class= "btn btn-primary">
+            <i class="fas fa-pencil-alt"></i>
+          </button>    
+        </form>
+    </div>
+    <div class = "img-thumbail mb-2" style ="width: 300px; height:200px; overflow:hidden">
+      <img src ="{{item.image}}" style="height:100%; width: 100%; object-fit:cover;" alt="" >
+    </div>
+    <div class="row m-1 justify-content-center"style ="width: 300px;" >
+      {{ macros.btn(item.title,true,"/games_objects/" ~ item.id) }}
+      <div class="col justify-content-stretch">
+        {{ macros.btn('Картинка',is_info,"/games_objects/" ~ item.id ~"?show=image") }}
+
+        {{ macros.btn('Описание',is_info,"/games_objects/" ~ item.id ~"?show=info","warning") }}
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+
+{# <ul class="nav nav-pills" style="justify-content: center;">
+    <li class="nav-item m-1">
+      {{ macros.btn(item.title,true,"/games_objects/" ~ item.id) }}
+    </li>
+</ul>
+  <ul class="nav nav-pills" style="justify-content: center;">
+    <li class="nav-item m-1">
+      {{ macros.btn('Картинка',is_info,"/games_objects/" ~ item.id ~"?show=image") }}
+    </li>
+    <li class="nav-item m-1">
+      {{ macros.btn('Описание',is_info,"/games_objects/" ~ item.id ~"?show=info","warning") }}
+    </li>
+
+  </ul> #}
+

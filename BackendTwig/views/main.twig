@@ -1,0 +1,27 @@
+{% extends "__common.twig" %}
+{% import "template.twig" as t %}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="list-group-horizontal">
+      <h1>{{title}}</h1>
+      <ul class="list-group list-group-horizontal">
+      
+        <div class="row">
+          {% for item in games_objects %}
+          {%  include "template.twig" %}
+      
+            
+          {% endfor %}
+        </div>
+      </ul>  
+    </div>    
+  </div>
+</div>
+
+
+
+{% endblock %}

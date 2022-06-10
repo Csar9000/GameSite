@@ -1,0 +1,45 @@
+{% extends "__common.twig" %}
+
+{% block content %}
+    <h1>Добавление Игры</h1>
+    <hr>
+
+    {% if message %}
+    <div class="alert alert-info">
+        {{message}}
+        <a href ="/games_objects/{{id}}">открыть новый объект</a>
+    </div>
+    {% endif %}
+
+    <form action="" enctype="multipart/form-data" method ="POST" class="row g-3">
+        <div class="col-4">
+            <label class="form-label">Название</label>
+            <input type="text" class="form-control" name="title" value = "{{object.title}}">
+        </div>
+        <div class="col-4">
+            <label class="form-label">Краткое описание</label>
+            <input type="text" class="form-control" name="description">
+        </div>
+        <div class="col-4">
+            <label class="form-label">Тип</label>
+            <select class="form-control" name="type">
+                {% for type in types %}
+                        <option value="{{ type.name }}" {% if type.name == object.type %}selected{% endif %}>{{ type.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="formFileLg" class="form-label">Картинка</label>
+            <input class="form-control form-control-lg" id="formFileLg" type="file" name="image">
+          </div>
+    
+        <div class="col-12">
+            <textarea name="info" placeholder="Полное описание..." class="form-control" rows="5">{{object.info}}</textarea>
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+
+
+{% endblock %}

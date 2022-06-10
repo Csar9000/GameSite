@@ -1,0 +1,30 @@
+
+{% extends "__common.twig" %}
+{% import "macros.twig" as macros %}
+{% block content %}
+
+
+
+<h1>{{title}} </h1>
+
+<ul class="list-group list-group-horizontal mt-2">
+  <ul class="nav nav-pills">
+    <li class="nav-item m-1" >
+      {{ macros.btn("Картинка",is_image,"/games_objects/" ~ id ~"?show=image") }}
+    </li>
+    <li class="nav-item m-1">
+      {{ macros.btn("Описание",is_info,"/games_objects/" ~ id ~"?show=info","warning") }}
+    </li>
+  </ul>
+</ul>
+
+
+
+{% if is_image %}
+<img src="{{ image }}" style="width: 300px; height:250px;"/>
+{% elseif is_info %}
+
+{{description}}
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "__common.twig" %}
+{% import "template.twig" as t %}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="list-group-horizontal">
+      <h1>{{title}}</h1>
+      <ul class="list-group list-group-horizontal">
+      
+        <div class="row">
+          {% for item in games_objects %}
+          {%  include "template.twig" %}
+          {% endfor %}
+        </div>
+
+        <div class="column">
+          {% set i = 0 %}
+          {% set nullArr = [] %}
+          Последние сообщения:
+          <ul class="list-group">
+          {% for m in history %}
+            <li class="list-group-item list-group-item-primary m-1">{{ m }}</li>
+          {% endfor %}
+          </ul>
+        </div>
+        <form action="/logout" enctype="multipart/form-data" method ="POST" class="row g-3">
+          <div class="col-12 text-end">
+              <button type="submit"  class="btn btn-primary">Выход</button>
+          </div>
+        </form>
+      
+      </ul>  
+    </div>    
+  </div>
+
+</div>
+
+
+
+
+
+{% endblock %}
